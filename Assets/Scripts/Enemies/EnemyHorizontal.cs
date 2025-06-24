@@ -8,12 +8,12 @@ public class EnemyHorizontal : Enemy
         derecha = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
     }
 
+    //Define un movimiento horizontal con 2 limites donde se da la vuelta
     public override void Move()
     {
         if (derecha)
@@ -34,14 +34,5 @@ public class EnemyHorizontal : Enemy
             derecha = true;
         }
 
-    }
-
-    public override void RecibirDaño(int daño)
-    {
-        life -= daño;
-        if (life <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 }

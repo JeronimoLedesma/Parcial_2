@@ -8,12 +8,13 @@ public class EnemyVertical : Enemy
         arriba = true;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         Move();
     }
 
+    //Define un movimiento vertical de arriba a abajo con 2 limites en donde se da la vuelta
     public override void Move()
     {
         if (arriba)
@@ -34,14 +35,5 @@ public class EnemyVertical : Enemy
             arriba = true;
         }
 
-    }
-
-    public override void RecibirDaño(int daño)
-    {
-        life -= daño;
-        if (life <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 }

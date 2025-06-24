@@ -7,17 +7,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float radio;
     [SerializeField] private LayerMask interact;
     private Vector2 startingPosition;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //Al inicio establece cual era la posicion inicial, para enviarlo ahi en caso de ser golpeado
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         startingPosition = transform.position;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         Caminar();
+
+        //Interactua con el objeto interactuable mas cercano en un radio establecido
         if (Input.GetKeyDown(KeyCode.K))
         {
             Collider2D collider = Physics2D.OverlapCircle(transform.position, radio, interact);
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Devuelve al jugador a la posicion inicial al ser golpeado
         if (collision.collider.CompareTag("Enemy"))
         {
             transform.position = startingPosition;

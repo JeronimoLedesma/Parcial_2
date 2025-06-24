@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ScriptableEnemy", menuName = "Enemigo")]
 public class ScriptableEnemy : ScriptableObject
 {
+    //Determina las caracteristicas que pueden tener lso enemigos
     [SerializeField] private string nombre;
     [SerializeField] private float vida;
     [SerializeField] private float velocidad;
